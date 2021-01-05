@@ -1,0 +1,18 @@
+!
+{ 
+  "name" : string , 
+  "primary" : { 
+    object ( CryptoKeyVersion) 
+  } , 
+  " target " : enum ( CryptoKeyPurpose) , 
+  "createTime" : string , 
+  "nextRotationTime" : string , 
+  "versionTemplate" : { 
+    object ( CryptoKeyVersionTemplate) 
+  } , 
+  "tags" : { 
+    строка : строка , 
+    ... 
+  } , 
+  "вращениеПериод" : строка 
+}
