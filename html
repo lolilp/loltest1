@@ -1,0 +1,107 @@
+html>
+
+<head>
+    <link rel="icon" type="image/png" href="/static/favicon.png">
+    <style>
+        * {
+            font-family: "Segoe UI", sans-serif;
+            font-size: 14px;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #212c3d;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            align-items: center;
+        }
+
+        .wrapper {
+            max-width: 600px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+            padding-bottom: 150px;
+            margin-bottom: -20px;
+        }
+
+        .logo {
+            width: 175px;
+            margin: 30px 0;
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+        p {
+            color: #ccc;
+            padding: 30px 0;
+            font-size: 1.2em;
+        }
+        p a {
+            font-size: 1em;
+            color: #fff;
+        }
+
+        button {
+            color: #fff;
+            font-weight: 600;
+            border-radius: 2px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            background-color: #0270d9;
+            padding: 5px 30px;
+        }
+
+        footer {
+            color: rgba(255, 255, 255, 0.55);
+            height: 20px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        footer a {
+            flex-grow: 0;
+            color: rgba(255, 255, 255, 0.55);
+            padding-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='wrapper'>
+        <div>
+            <img class='logo' src='/static/mixer_full.svg' alt='Mixer logo' />
+        </div>
+
+        <div>
+            <img src='/static/thank_you_for_everything.png' alt='Hugging Mixer bot' />
+        </div>
+
+        <h2>Thank you to our amazing community and partners</h2>
+        <p>As of July 22, the Mixer service has closed. The Facebook Gaming community invites all Mixer viewers and
+            streamers to check out <a href="https://fb.gg?ref=mixer">fb.gg</a> where you can start streaming or keep
+            watching the amazing Mixer streamers who have decided to make Facebook Gaming their new home.</p>
+
+        <a href='https://fb.gg?ref=mixer'>
+            <button>Go to fb.gg</button>
+        </a>
+    </div>
+
+    <footer>
+        <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default">Terms of Use</a>
+        <a href="https://privacy.microsoft.com/en-us/privacystatement">Privacy Statement</a>
+        &copy; Microsoft 2020
+    </footer>
+</body>
+
+</html>

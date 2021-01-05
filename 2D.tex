@@ -1,0 +1,35 @@
+\ input pst-eps \ input pst-plot97 \ input pst-node \ TeXtoEPS
+
+\ Psset {LineColor = черный, ширина линии = 1pt, arrowsize = 8pt, единица = 0.29cm}
+\ Pspicture * (- 15,3, -15,3) (17.4,15.3)
+
+% Осей
+\ Psaxes [Dx = 5, Dy = 5] {<->} (0,0) (- 14.5, -14.5) (14.5,14.5)
+\ Psset {= ширина линии .4pt}
+\ Psaxes [Dx = 1, Dy = 1, этикетки = нет, ticksize = 1.5pt] (0,0) (- 13, -13) (13,13)
+\ uput {10pt} [0] (0,14) {\ psscalebox {1.25} {\ it y-axis}}
+\ uput {10pt} [70] (14,0) {\ psscalebox {1.25} {\ it x-axis}}
+
+Происхождение%
+\ Pnode (0,0) {O}
+\ Uput {35pt} [310] (0,0) {\ rnode {Ot} {\ psscalebox {1,1} {
+        \ vbox {\ halign {\ hfil # \ hfil \ cr $ (0,0) $ \ cr \ it origin \ cr}}}}}
+\ Nccurve [angleA = 315, angleB = 145, arrowsize = 4pt,
+        nodesepA = 2pt, nodesepB = -3pt, LineColor = серый] {<-} {O} {} Ot
+
+% Point
+\ Psdots [dotstyle = *, dotscale = 1,2] (3,5)
+\ Psline [LineStyle = пунктирная, ширина линии = .8pt] (3,0) (3,5) (0,5)
+\ Uput {2.5pt} [53] (3,5) {\ psscalebox {1,1} {$ P (3,5) $}}
+
+
+% Квадрантов
+\ uput {3cm} [45] (0,0) {\ psscalebox {1.6} {\ bf I}}
+\ uput {3cm} [135] (0,0) {\ psscalebox {1.6} {\ bf II}}
+\ uput {3cm} [225] (0,0) {\ psscalebox {1.6} {\ bf III}}
+\ uput {3cm} [315] (0,0) {\ psscalebox {1.6} {\ bf IV}}
+
+\ endpspicture
+\ endTeXtoEPS
+\ nopagenumbers
+\конец

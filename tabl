@@ -1,0 +1,99 @@
+утверждение :
+    { create_database | alter_database | create_table | create_index | alter_table | drop_table | drop_index }
+
+create_database :
+     CREATE DATABASE  database_id
+
+alter_database :
+     ALTER DATABASE  database_id 
+    действие
+
+где действие :
+    SET OPTIONS (optimizer_version = {1 ... 2 | null})
+
+create_table :
+     CREATE TABLE ([
+       { column_name  data_type [NOT NULL] [ options_def ]
+       | table_constraint }
+       [, ...]
+    ]) ПЕРВИЧНЫЙ КЛЮЧ ([ column_name [{ASC | DESC}], ...])
+    [ВСТАВИТЬ В РОДИТЕЛЯ table_name [ON DELETE {CASCADE | БЕЗДЕЙСТВИЕ } ] ]
+
+    где data_type :
+        { scalar_type | array_type }
+
+    и options_def это:
+        {OPTIONS (allow_commit_timestamp = {true | null})}
+
+    и table_constraint это:
+        [CONSTRAINT ограничение_имя ]
+        {FOREIGN KEY ( column_name [, ...]) ССЫЛКИ ref_table ( ref_column [, ...])}
+
+
+create_index :
+     CREATE [UNIQUE] [NULL_FILTERED] INDEX  index_name 
+    ON table_name ( key_part [, ...]) [ storing_clause ] [, interleave_clause ]
+
+    где index_name :
+        {А-г | A-Z} [{а-г | A-Z | 0-9 | _} +]
+
+    и key_part является:
+         column_name [{ASC | DESC}]
+
+    и storing_clause это:
+        ХРАНЕНИЕ (имя столбца [, ...])
+
+    и interleave_clause это:
+        INTERLEAVE IN table_name
+
+alter_table :
+     ALTER TABLE  table_name 
+    action [, ...]
+
+    где действие :
+        ДОБАВИТЬ [КОЛОНКА] имя_столбца  тип_данных [НЕ ПУСТО] [ options_def ]
+        DROP [COLUMN] имя_столбца 
+        ADD table_constraint 
+        DROP CONSTRAINT constraint_name
+        УСТАНОВИТЬ НА УДАЛЕНИИ {КАСКАД | БЕЗДЕЙСТВИЕ }
+        ALTER [COLUMN] column_name {{ data_type } [NOT NULL] | SET [ options_def ]}
+
+    и тип данных :
+        { scalar_type | array_type }
+
+    и options_def это:
+        {OPTIONS (allow_commit_timestamp = {true | null})}
+
+    и table_constraint это:
+        [CONSTRAINT ограничение_имя ]
+        {FOREIGN KEY ( column_name [, ...]) ССЫЛКИ ref_table ( ref_column [, ...])}
+
+drop_table :
+     DROP TABLE  имя_таблицы
+
+drop_index :
+     DROP INDEX  index_name
+
+scalar_type :
+    {BOOL | INT64 | FLOAT64 | STRING ( длина ) | БАЙТЫ ( длина ) | ДАТА | TIMESTAMP}
+
+длина :
+    { int64_value | МАКСИМУМ }
+
+array_type :
+     ARRAY < scalar_type >
+
+int64_value :
+    { decimal_value | hex_value }
+
+десятичное_значение :
+    [-] + 0-9
+
+hex_value :
+    [-] 0x {0-9 | а-е | А-Р} +
+
+database_id :
+    {А-г} [{а-г | 0-9 | _ | -} +] {а-г | 0-9}
+
+имя_таблицы , имя_столбца , имя_индекса :
+    {А-г | A-Z} [{а-г | A-Z | 0-9 | _} +]
